@@ -236,7 +236,7 @@ impl EventLoop {
                 MainEvent::Pause => {
                     debug!("App Paused - stopped running");
                     // TODO: This is incorrect - will be solved in https://github.com/rust-windowing/winit/pull/3897
-                    self.running = false;
+                    self.running = true;
                 },
                 MainEvent::Stop => {
                     app.suspended(self.window_target());
