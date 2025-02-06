@@ -280,7 +280,7 @@ impl<T: 'static> EventLoop<T> {
                 },
                 MainEvent::Pause => {
                     debug!("App Paused - stopped running");
-                    self.running = false;
+                    self.running = true;
                 },
                 MainEvent::Stop => {
                     // XXX: how to forward this state to applications?
