@@ -150,6 +150,7 @@ declare_class!(
 
         #[method(touchesBegan:withEvent:)]
         fn touches_began(&self, touches: &NSSet<UITouch>, _event: Option<&UIEvent>) {
+            println!("touch start");
             self.handle_touches(touches)
         }
 
@@ -160,6 +161,7 @@ declare_class!(
 
         #[method(touchesEnded:withEvent:)]
         fn touches_ended(&self, touches: &NSSet<UITouch>, _event: Option<&UIEvent>) {
+            println!("touch end");
             self.handle_touches(touches)
         }
 
