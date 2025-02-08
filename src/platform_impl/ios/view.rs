@@ -167,6 +167,7 @@ declare_class!(
 
         #[method(touchesCancelled:withEvent:)]
         fn touches_cancelled(&self, touches: &NSSet<UITouch>, _event: Option<&UIEvent>) {
+            println!("touch canceled");
             self.handle_touches(touches)
         }
 
@@ -374,6 +375,9 @@ impl WinitView {
         let this: Retained<Self> = unsafe { msg_send_id![super(this), initWithFrame: frame] };
 
         this.setMultipleTouchEnabled(true);
+        unsafe {
+            this.setExclusiveTouch(false);
+        }
 
         if let Some(scale_factor) = window_attributes.platform_specific.scale_factor {
             this.setContentScaleFactor(scale_factor as _);
