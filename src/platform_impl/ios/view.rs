@@ -402,6 +402,9 @@ impl WinitView {
                         Some(sel!(pinchGesture:)),
                     )
                 };
+                pinch.setCancelsTouchesInView(false);
+                pinch.setDelaysTouchesBegan(false);
+                pinch.setDelaysTouchesEnded(false);
                 pinch.setDelegate(Some(ProtocolObject::from_ref(self)));
                 self.addGestureRecognizer(&pinch);
                 self.ivars().pinch_gesture_recognizer.replace(Some(pinch));
@@ -427,6 +430,9 @@ impl WinitView {
                         Some(sel!(panGesture:)),
                     )
                 };
+                pan.setCancelsTouchesInView(false);
+                pan.setDelaysTouchesBegan(false);
+                pan.setDelaysTouchesEnded(false);
                 pan.setDelegate(Some(ProtocolObject::from_ref(self)));
                 pan.setMinimumNumberOfTouches(minimum_number_of_touches as _);
                 pan.setMaximumNumberOfTouches(maximum_number_of_touches as _);
@@ -449,6 +455,9 @@ impl WinitView {
                         Some(sel!(doubleTapGesture:)),
                     )
                 };
+                tap.setCancelsTouchesInView(false);
+                tap.setDelaysTouchesBegan(false);
+                tap.setDelaysTouchesEnded(false);
                 tap.setDelegate(Some(ProtocolObject::from_ref(self)));
                 tap.setNumberOfTapsRequired(2);
                 tap.setNumberOfTouchesRequired(1);
@@ -471,6 +480,9 @@ impl WinitView {
                         Some(sel!(rotationGesture:)),
                     )
                 };
+                rotation.setCancelsTouchesInView(false);
+                rotation.setDelaysTouchesBegan(false);
+                rotation.setDelaysTouchesEnded(false);
                 rotation.setDelegate(Some(ProtocolObject::from_ref(self)));
                 self.addGestureRecognizer(&rotation);
                 self.ivars().rotation_gesture_recognizer.replace(Some(rotation));
