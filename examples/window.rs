@@ -180,10 +180,10 @@ impl Application {
         #[cfg(ios_platform)]
         {
             use winit::platform::ios::WindowExtIOS;
-            window.recognize_doubletap_gesture(true);
-            window.recognize_pinch_gesture(true);
-            window.recognize_rotation_gesture(true);
-            window.recognize_pan_gesture(true, 2, 2);
+            window.recognize_doubletap_gesture(false);
+            window.recognize_pinch_gesture(false);
+            window.recognize_rotation_gesture(false);
+            window.recognize_pan_gesture(false, 2, 2);
         }
 
         let window_state = WindowState::new(self, window)?;
